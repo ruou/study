@@ -1,0 +1,220 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:javaweb</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="jdbc">JDBC</h1>
+<h2 id="jdbc-">jdbc连接的步骤</h2>
+<pre><code>1.加载驱动 Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+2.得到数据库链接
+Connection conn = DriverManager.getConnection(url,
+&quot;root&quot;, &quot;123456&quot;);
+3.操作数据库
+Statement st = conn.createStatement();
+ResultSet rs = st.executeQuery(&quot;select * from user&quot;);
+4.获得返回结果
+List&lt;User&gt; userList = new ArrayList&lt;&gt;();
+while (rs.next()) {
+  System.out.println(rs.getString(&quot;id&quot;) + &quot; &quot;+ rs.getString(&quot;name&quot;));
+   User user = new User();
+   user.setId(rs.getString(&quot;id&quot;));
+   user.setName(rs.getString(&quot;name&quot;));
+   userList.add(user);
+}
+5.关闭各种资源
+rs.close();
+st.close();
+conn.close();
+</code></pre><h2 id="preparedstatement">preparedStatement</h2>
+<p>防止sql注入 实现批量处理数据</p>
+<h2 id="-">高级数据库操作</h2>
+<p>1.c3p0连接池
+2.dbcp连接池
+3dbutils数据库连接池</p>
+<pre><code>DBUtils主要就是简化JDBC操作，封装虽好，但还是要知道其中的原理才好。
+
+Dbutils三个核心功能介绍
+QueryRunner中提供对sql语句操作的API.
+ResultSetHandler接口，用于定义select操作后，怎样封装结果集.
+
+
+QueryRunner核心类：
+QueryRunner(DataSource ds) ；传入参数为连接池
+
+update(String sql, Object… params) ，执行insert update delete操作query(String sql, 
+
+query(String sql,ResultSetHandler rsh, Object… params) ，执行 select操作
+</code></pre><h1 id="servlet">servlet</h1>
+<h2 id="servlet-">Servlet的生命周期</h2>
+<p>初始化阶段   创建 Servlet 实例对象，然后通过调用 init() 方法,只能用初始化一次
+运行阶段        对于 Servlet 的每一次访问请求，Servlet 容器都会调用一次 Servlet 的 service() 方法，创建新的 ServletRequest 和 ServletResponse 对象
+销毁阶段        在销毁 Servlet 之前，Servlet 容器会调用 Servlet 的 destroy() 方法</p>
+<h2 id="servlet-">Servlet内的作用域</h2>
+<p>request   session    application</p>
+<h2 id="httpservletrequest">HttpServletRequest</h2>
+<p>获取消息行  获取消息头  获取请求参数的方法   请求转发和重定向</p>
+<h2 id="httpservletresponse">HttpServletResponse</h2>
+<p>状态行、响应消息头、消息体（大量的数据都是通过响应消息体传递的）getwriter()方法</p>
+<h2 id="cookie-session">Cookie和Session</h2>
+<p>5.1当客户端第一次访问Web应用时，服务器以响应头的形式将Cookie发送给客户端，
+客户端会把Cookie保存到本地。当浏览器再次请求该Web应用时，客户端会把请求的网址和Cookie一起提交给服务器。
+5.2客户端第一次访问Web应用时，服务器为该客户端创建一个Session，同时，服务器把该Session的ID放入Cookie返回给客户端。
+5.3URL重写，是将URL重新写成Web应用可以处理的另一个URL的过程。</p>
+<h2 id="filter">Filter</h2>
+<h2 id="listener">Listener</h2>
+<h1 id="jsp">jsp</h1>
+<p>做业务逻辑
+JSP声明语句：&lt;%!声明语句%&gt;，通常声明全局变量、常量、方法、类
+JSP Scriptlet：&lt;%java代码%&gt;，其中可包含局部变量、java语句
+JSP表达式：&lt;%=java 代码%&gt;
+&lt;%=变量或可以返回值的方法或 Java 表达式%&gt;
+指令通常以&lt;%@标记开始，以%&gt;标记结束</p>
+<h2 id="-">三大指令</h2>
+<p>它们分别是 page、include 和 taglib标签库</p>
+<p>include
+当前 JSP 页面与静态引入的文件紧密结合为一个 Servlet。
+这些文件可以是 JSP 页面、HTML 页面、文本文件或是一段 Java 代码。
+include 指令的包含过程为静态包含</p>
+<h2 id="-">七大动作</h2>
+<p>1<a href="jsp:include">jsp:include</a> 动作的包含过程为动态包含，通常用来包含那些经常需要改动的文件。
+因为服务器执行的是两个文件，被包含文件的改动不会影响主文件，因此服务器不会
+对主文件重新编译，而只须重新编译被包含的文件即可。并且对被包含文件的编译是在执行时才进行的，也就是说，只有
+当 <a href="jsp:include">jsp:include</a> 动作被执行时，使用该标记包含的目标文件才会被编译，否则，被包含的文件不会被编译。</p>
+<p>2使用 <a href="jsp:param">jsp:param</a> 动作标记向这个程序传递参数信息。</p>
+<p>3<a href="jsp:forward">jsp:forward</a> 动作标记就可以实现页面的跳转，用来将请求转到另外一个 JSP、HTML 或相关的资源文件中。</p>
+<p>4<a href="jsp:plugin">jsp:plugin</a> 动作可以在页面中插入 Java Applet 小程序或 JavaBean，它们能够在客户端运行，但此时，需要在 IE 浏览器中安装 Java 插件。</p>
+<p>5.<a href="jsp:useBean">jsp:useBean</a> 动作标记用于在 JSP 页面中创建 bean 实例，并且通过设置相关属性，可以将该实例存储到指定的范围。</p>
+<p>6.<a href="jsp:setProperty">jsp:setProperty</a> 动作标记通常与 <a href="jsp:useBean">jsp:useBean</a> 动作标记一起使用，它以请求中的参数给创建的 JavaBean 中对应的属性赋值，
+通过调用 bean 中的 setXxx() 方法来完成。</p>
+<p>7.<a href="jsp:getProperty">jsp:getProperty</a> 标记用来获得 bean 中的属性，并将其转换为字符串，再在 JSP 页面中输出，该 bean 中必须具有 getXxx() 方法。</p>
+<h2 id="-">八大内置对象</h2>
+<p>​    application 对象是 javax.servlet.ServletContext 类的实例
+​    out 对象会通过 JSP 容器变换为 java.io.PrintWriter 类的对象。
+​    request 对象是 HttpServletRequest（接口）的实例
+​    response 是 HttpServletResponse 的实例
+​    session 对象
+​    pageContext 对象
+​    page 对象是为了执行当前页面应答请求而设置的 Servlet 类的实体
+​    config 对象是 javax.servlet.ServletConfig 类的实例</p>
+<h1 id="el">El</h1>
+<h2 id="-">判断和取值</h2>
+<pre><code>${&quot;logout&quot; eq ${param.action}
+${sessionScope.u==null}
+${6==6} 或 ${6 eq 6}
+${A &amp;&amp; B} 或 ${A and B}
+${(6==8)?(9==9):(9!=9)}
+${empty info}
+
+访问bean${p1.ID}
+访问集合${books [0]}
+</code></pre><h2 id="-11-">内置对象11个</h2>
+<p>pageContext  pageScope  requestScope sessionScope
+applicationScope <strong>5个作用域对象</strong>
+<strong>param</strong>  paramValues <strong>cookie</strong>  initParam  header    header  Values</p>
+<p>注:</p>
+<p>当要存取的数择名称中包含不是字母或数字的特殊字符时，只能使用 []。
+当取得的数据为动态值时，只能使用 []。</p>
+<h1 id="jstl">jstl</h1>
+<h2 id="-">条件语句</h2>
+<p>&lt;c:if test=&quot;${salary &gt; 2000}&quot;&gt;</p>
+<pre><code>  &lt;p&gt;我的工资为: &lt;c:out value=&quot;${salary}&quot;/&gt;&lt;p&gt;&lt;/c:if&gt;
+</code></pre><pre><code>c:choose&gt;
+    &lt;c:when test=&quot;&lt;boolean&gt;&quot;&gt;
+        ...
+    &lt;/c:when&gt;
+    &lt;c:when test=&quot;&lt;boolean&gt;&quot;&gt;
+        ...
+    &lt;/c:when&gt;
+    &lt;c:otherwise&gt;
+        ...
+    &lt;/c:otherwise&gt;
+
+&lt;/c:choose
+</code></pre><h2 id="-">循环语句</h2>
+<pre><code>&lt;c:forEach var=&quot;i&quot; begin=&quot;1&quot; end=&quot;5&quot;&gt;
+    &lt;c:out value=&quot;${i}&quot;/&gt;
+&lt;/c:forEach
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

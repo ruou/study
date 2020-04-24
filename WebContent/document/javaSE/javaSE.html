@@ -1,0 +1,770 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:java</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="java-">java简介</h1>
+<h2 id="java-">java的历史</h2>
+<p>Java最早是由SUN公司（已被Oracle收购）的詹姆斯·高斯林（高司令，人称Java之父）在上个世纪90年代初开发的一种编程语言，最初被命名为Oak.1995正式更名为java</p>
+<p><strong>Java介于编译型语言和解释型语言之间。</strong>而Java是将<strong>代码编译成一种“字节码”</strong>，它类似于抽象的CPU指令，然后，针对不同平台编写虚拟机，<strong>不同平台的虚拟机负责加载字节码并执行</strong>，这样就实现了“一次编写，到处运行”的效果。当然，这是针对Java开发者而言。</p>
+<p>对于虚拟机，需要为每个平台分别开发。为了保证不同平台、不同公司开发的虚拟机都能正确执行Java字节码，SUN公司制定了一系列的Java虚拟机规范。随着Java的发展，SUN给Java又分出了三个不同版本：  </p>
+<p>​     Java SE：Standard Edition       Java EE：Enterprise Edition       Java ME：Micro Edition</p>
+<h2 id="java-">Java版本</h2>
+<p>从1995年发布1.0版本开始，到目前为止，最新的Java版本是Java 13：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1995</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>1998</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>1.3</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>1.4</td>
+</tr>
+<tr>
+<td>2004</td>
+<td>1.5 / 5.0</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>1.6 / 6.0</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>1.7 / 7.0</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>1.8 / 8.0</td>
+</tr>
+<tr>
+<td>2017/9</td>
+<td>1.9 / 9.0</td>
+</tr>
+<tr>
+<td>2018/3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2018/9</td>
+<td>11</td>
+</tr>
+<tr>
+<td>2019/3</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2019/9</td>
+<td>13</td>
+</tr>
+<tr>
+<td>2020/3</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<h2 id="java-">java环境</h2>
+<p>简单地说，JRE就是运行<strong>Java字节码的虚拟机</strong>。如果只有Java源码，要编译成Java字节码，就需要JDK。</p>
+<p>因为JDK除了包含JRE，还提供了<strong>编译器、调试器</strong>等开发工具。</p>
+<h1 id="java-">java基础</h1>
+<h2 id="-">命名</h2>
+<p>类名要求：以单词首个<strong>字母</strong>大写</p>
+<p><strong>方法:单词首个</strong>字母小写.</p>
+<p><strong>变量通常</strong>都是小写字母</p>
+<p><strong>长量通常都是</strong>大写字母。</p>
+<h2 id="-">变量和数据类型</h2>
+<p>基本数据类型是CPU可以直接进行运算的类型。(8种)</p>
+<p>Java定义了以下几种基本数据类型：</p>
+<p>整数类型：byte 1，short2，int4，long8</p>
+<p>浮点数类型：float4，double8</p>
+<p>字符类型：char2</p>
+<p>布尔类型：boolean  理论上存储布尔类型只需要1 bit，但是通常JVM内部会把boolean表示为4字节整数。</p>
+<p>常量在初始化后不可重新赋值。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200415153749222.png" alt="image-20200415153749222"></p>
+<h2 id="main-">main函数</h2>
+<p>1.public static void main（String[] args）{   }</p>
+<p>接收的是跟在javac 后面的参数</p>
+<p>2.args==arguments</p>
+<p>3.可以重载main函数,一个类也可以有多个main函数</p>
+<p>不推荐这样写</p>
+<h2 id="jvm-">jvm中的堆,栈,和方法区</h2>
+<p>堆:用来存放对象,数组</p>
+<p>栈:用来存放方法,执行完后会释放资源,出栈</p>
+<p>方法区:</p>
+<p>静态方法区:用来存储静态资源,即静态变量,静态方法。</p>
+<p>常量池:用来存放常量的。</p>
+<h1 id="-">面向对象编程</h1>
+<h2 id="-">多态</h2>
+<p>多态的出现大大提高了程序的扩展性。不需要添加重复的代码。
+前提:类与类之间有关系,要么继承,要么实现。
+多态中<strong>子父类成员变量</strong>的特点:子类自动继承父类的变量,可进行复写。</p>
+<p>多态<strong>成员函数</strong>的特点是：编译看左边，运行看右边。</p>
+<p>成员<strong>变量和静态函数</strong>无论编译和运行都是看左边。</p>
+<h2 id="-">成员修饰符</h2>
+<p>1.public指所有类都能访问一个类只能有一个public修饰的类</p>
+<p>2.private只有本类能访问  修饰后变量和方法都只能在本类访问</p>
+<p>3.protected只有子类和子类的子类能访问</p>
+<p>4.default只有本包能访问</p>
+<p>5.只能修饰类的成员</p>
+<h2 id="this-super-">this,super关键字</h2>
+<p>this是指当前对象的引用</p>
+<p>super是父类对象的引用</p>
+<p>this();是指调用当前对象的构造方法</p>
+<p>super();调用父类的构造方法</p>
+<h2 id="static-">static,内部类</h2>
+<p><strong>static修饰的成员</strong>有静态变量（类变量）,静态方法（类方法）,静态代码块(类初始化代码块)
+<strong>一般不定义静态,生命周期太长,而且清不掉三个特点</strong></p>
+<p>1.类的成员（静态变量和方法和代码块）总是<strong>优于实例成员</strong>加载（成员变量和方法）</p>
+<p>2.静态代码块,静态变量只执行一次</p>
+<p>3.静态变量加载进内存中的方法区,成员变量加载进堆内存，  静态变量是所有成员共享的。</p>
+<p><strong>静态内部类</strong></p>
+<p>1.内部类用静态修饰,可直接通过内部类名访问</p>
+<p>2.方法中不能声明静态内部类</p>
+<p>3.不能访问类中的非静态变量</p>
+<p><strong>匿名内部类</strong></p>
+<p>1.一般要继承一个类或接口,重写方法,也可以自定义方法，再调用</p>
+<p>2.代码格式  new  Runnerble(){ public void show(){     } }.show();</p>
+<p><strong>普通内部类</strong></p>
+<p>1.指一个类中再创建一个类,<strong>外部类</strong>要实例才内访问内部类,内部类可<strong>直接访问</strong>外部类。</p>
+<p>2.内部类一般私有,然后再提供访问方法给外部,一般会加限制条件。</p>
+<h1 id="-">异常</h1>
+<h2 id="java-">java中的异常</h2>
+<p>Exception的异常
+    1.必须捕获的异常，包括Exception及其子类，但不包括RuntimeException及其子类，这种类型的异常称为Checked Exception。
+    2.不需要捕获的异常，包括Error及其子类，RuntimeException及其子类。</p>
+<p>因为Java的异常是<code>class</code>，它的继承关系如下：</p>
+<pre><code class="lang-ascii">                     ┌───────────┐
+                     │  Object   │
+                     └───────────┘
+                           ▲
+                           │
+                     ┌───────────┐
+                     │ Throwable │
+                     └───────────┘
+                           ▲
+                 ┌─────────┴─────────┐
+                 │                   │
+           ┌───────────┐       ┌───────────┐
+           │   Error   │       │ Exception │
+           └───────────┘       └───────────┘
+                 ▲                   ▲
+         ┌───────┘              ┌────┴──────────┐
+         │                      │               │
+┌─────────────────┐    ┌─────────────────┐┌───────────┐
+│OutOfMemoryError │... │RuntimeException ││IOException│...
+└─────────────────┘    └─────────────────┘└───────────┘
+                                ▲
+                    ┌───────────┴─────────────┐
+                    │                         │
+         ┌─────────────────────┐ ┌─────────────────────────┐
+         │NullPointerException │ │IllegalArgumentException │...
+         └─────────────────────┘ └─────────────────────────┘
+</code></pre>
+<h2 id="-">捕获异常</h2>
+<p>1.在catch里写异常处理逻辑,</p>
+<p>​    e.getMessage()    输出 /by zero</p>
+<p>​    e.toString    输出异常名称</p>
+<p>​    e.printStackTrace   打印异常栈的跟踪信息。</p>
+<p>​    是jvm默认的异常处理机制。</p>
+<p>2.可以使用多个catch语句，每个catch分别捕获对应的Exception及其子类。存在多个catch的时候，catch的顺序非常重要：子类必须写在前面,否则只抛出首个异常。</p>
+<p>3.使用try ... catch ... finally时：finally语句保证了有无异常都会执行，它是可选的；</p>
+<p>一个catch语句也可以匹配多个非继承关系的异常。</p>
+<h2 id="-">抛出异常</h2>
+<p>1.throws Exception //声明了该功能有可能会出现问题。</p>
+<p>2.处理异常要么处理,要么也不管直接抛出给jvm</p>
+<h2 id="runtimeexception">RuntimeException</h2>
+<p>当该异常发生,希望程序停止,而不是由调用者进行捕捉</p>
+<p>因为捕捉后不会知道调用出现了什么异常。</p>
+<p>自定义异常时,如果该异常发生后,无法进行运算,就让自定义异常继承RuntimeException。
+特点:<strong>出现该异常,运算无法继续</strong>,所以无法被处理。    </p>
+<p> ArethmeticException   NullPointerException</p>
+<h2 id="-">自定义异常</h2>
+<p>对特有异常自己进行封装,生成对象</p>
+<p>1.</p>
+<pre><code class="lang-java">class FuShuException extends Exception{   
+
+    FuShuException(String msg){super(msg);
+
+    }
+
+}  
+</code></pre>
+<p>2.自定义异常只能手动抛出  if(b&lt;0){throw new FuShuException(&quot;出现了除数是负数的情况&quot;);}  一般情况下,函数内出现异常,函数上需要声明.</p>
+<p>3.如果只出现异常名称,却没有异常信息，需要复写Exception的方法。</p>
+<p>4.抛出异常时，尽量复用JDK已定义的异常类型；</p>
+<h1 id="java-">java核心类</h1>
+<h2 id="string">String</h2>
+<p><strong>String</strong></p>
+<p>1.String是一个对象</p>
+<p>2.字符串最大特点:一旦初始化不可改变,是一个常量==是比较地址值,equals比较的是常量值常用方法常见功能-获取和判断   charAt equals         转换   tostring转换成字符串          切割和替换    split          比较和去除空格 equals trim（建议使用stringbuilder,效率最重要）</p>
+<p><strong>Stringbuffer</strong></p>
+<p>初始化后可改变,是字符缓冲区,是一个<strong>容器</strong></p>
+<p>1.长度可变化,线程安全</p>
+<p>2.可以操作多个数据类型,</p>
+<p>3.最终会通过tostring方法完成字符串操作 存储,删除,获取,修改 CURD create update read delete主要方法:append insert tostring</p>
+<p><strong>StringBuilder  jdk1.5</strong></p>
+<p>一个可变的字符序列。 此类提供与StringBuffer的API，但不保证同步。</p>
+<h2 id="-">包装类</h2>
+<p>作用:<strong>用于基本数据类型和字符串之间做转换</strong></p>
+<p>byte  Byte     short  short     int    Integer     long  Long     boolean Boolean     float  Float     double  Double char  Character</p>
+<pre><code>基本数据类型转成字符串。  
+基本数据类型+&quot;&quot; 
+基本数据类型.toString(基本数据类型值); 
+如:Integer.toString(34);//将34整数变成&quot;34&quot;;
+</code></pre><pre><code class="lang-java"> 字符串转成基本数据类型。 
+
+ xxx a = Xxx.parseXxx(String);  
+
+ 通用,parse是转换的意思 静态的   
+
+ int a = Integer.parseInt(&quot;123&quot;);  
+
+ double b = Double.parseDouble(&quot;12.23&quot;);  
+
+ boolean b = Boolean.parseBoolean(&quot;true&quot;); 
+
+ Integer i = new Integer(&quot;123&quot;); 
+
+ int num = i.intValue();
+
+
+</code></pre>
+<p><strong>自动插箱装箱</strong> <strong>1.5</strong> <strong>简化书写</strong></p>
+<pre><code>Int eger x = 4;//自动装箱。//new Integer(4)
+
+x = x + 2;进行自动拆箱。变成成了int类型。和2进行加法运算。
+
+注:当数值在byte范围内容，对于新特性，如果该数值已经存在，则不会在开辟新的空间。
+</code></pre><h1 id="-">容器</h1>
+<h2 id="-">概述</h2>
+<p>集合   集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类</p>
+<pre><code>Conlection    是 List、Set 和 Queue 的父接口
+
+set      
+
+  HashSet、为优化査询速度而设计的 Set。
+
+  TreeSet、是一个有序的 Set，这样就能从 Set 里面提取一个有序序列
+
+list      
+
+  ArrayList 能进行快速的随机访问，效率高而且实现了可变大小的数组
+
+  LinkedList 随机访问较慢,优化了顺序访问
+
+queue    
+
+  ArrayDueue 是一个基于数组实现的双端队列，按“先进先出”的方式操作集合元素
+
+map  key 和 value 都可以是任何引用类型的数据  
+
+  HashMap 按哈希算法来存取键对象
+
+  TreeMap   可以对键对象进行排序
+</code></pre><h2 id="collection">Collection</h2>
+<p>Java标准库自带的java.util包提供了集合类：Collection，它是除Map外所有其他集合类的根接口。</p>
+<p>1.Java集合的设计有几个特点：</p>
+<p>​    一是实现了接口和实现类相分离，例如，有序表的接口是List，具体的实现类有ArrayList，LinkedList等。</p>
+<p>​    二是支持泛型，我们可以限制在一个集合中只能放入同一种数据类型的元素。</p>
+<p>2.List还允许添加null.</p>
+<h2 id="-">迭代器</h2>
+<p>什么是迭代器呢？Java访问集合总是通过统一的方式——迭代器（Iterator）来实现通过Iterator遍历List永远是最高效的方式。通过容器的iterator()方法获取该内部类的对象。</p>
+<pre><code>Iterator it = l.iterator();//获取迭代器，用于取出集合中的元素。       
+ while(it.hasNext())        {            
+    sop(it.next());       
+}
+</code></pre><p>Java的foreach循环本身就可以帮我们使用Iterator遍历。</p>
+<p>格式：for(数据类型 变量名 : 被遍历的集合(Collection)或者数组){   </p>
+<p> }</p>
+<p>对集合进行遍历(数组也行)</p>
+<h2 id="list">List</h2>
+<p>List是最基础的一种集合：它是一种有序链表</p>
+<p>1.需要增删元素的有序列表，我们使用最多的是ArrayList</p>
+<p>​    在内部使用了数组来存储所有元素。</p>
+<p>我们来比较一下<code>ArrayList</code>和<code>LinkedList</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">ArrayList</th>
+<th style="text-align:left">LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">获取指定元素</td>
+<td style="text-align:left">速度很快</td>
+<td style="text-align:left">需要从头开始查找元素</td>
+</tr>
+<tr>
+<td style="text-align:left">添加元素到末尾</td>
+<td style="text-align:left">速度很快</td>
+<td style="text-align:left">速度很快</td>
+</tr>
+<tr>
+<td style="text-align:left">在指定位置添加/删除</td>
+<td style="text-align:left">需要移动元素</td>
+<td style="text-align:left">不需要移动元素</td>
+</tr>
+<tr>
+<td style="text-align:left">内存占用</td>
+<td style="text-align:left">少</td>
+<td style="text-align:left">较大</td>
+</tr>
+</tbody>
+</table>
+<p>通常情况下，我们总是优先使用<code>ArrayList</code>。</p>
+<h2 id="set">Set</h2>
+<p>HashSet比较常用</p>
+<p>1.<strong>请注意，此实现不同步。</strong> 如果多个线程并发访问哈希集，并且至少有一个线程修改该集合，那么它<em>必须</em>在外部进行同步。</p>
+<p>2.如果我们只需要存储不重复的key，并不需要存储映射的value，那么就可以使用Set。3.Set用于存储不重复的元素集合，它主要提供以下几个方法：</p>
+<p>​    将元素添加进Set<E>：boolean add(E e)</p>
+<p>​    将元素从Set<E>删除：boolean remove(Object e)</p>
+<p>​    判断是否包含元素：boolean contains(Object e)</p>
+<h2 id="map">Map</h2>
+<p>1.Map是一种映射表，可以通过key快速查找value。最常用的一种Map实现是HashMap。</p>
+<p>2.Map中不存在重复的key，因为放入相同的key，只会把原有的key-value对应的value给替换掉。</p>
+<h1 id="io">IO</h1>
+<h2 id="file">File</h2>
+<p>File 类是 java.io 包中唯一代表磁盘文件本身的对象，也就是说，如果希望在程序中操作文件和目录，则都可以通过 File 类来完成。</p>
+<h2 id="io-">IO输入输出</h2>
+<p>所有输入流类都是 InputStream 抽象类（字节输入流）和 Reader 抽象类（字符输入流）的子类。
+所有输出流类都是 OutputStream 抽象类（字节输出流）和 Writer 抽象类（字符输出流）的子类。</p>
+<p>每个 Java 程序运行时都带有一个系统流，系统流对应的类为 java.lang.System。Sytem 类封装了 Java 程序运行时的 3 个系统流，分别通过 in、out 和 err 变量来引用。
+变量的作用域为 public 和 static</p>
+<p>尽管它们通常用于对控制台进行读取和写入字符，但是这些都是字节流。因为预定义流是没有引入字符流的 Java 原始规范的一部分，所以它们不是字符流而是字节流，但是在 Java 中可以将它们打包到基于字符的流中使用。</p>
+<h2 id="java-">java字节流</h2>
+<p>包括 ByteArrayInputStream 类、ByteArrayOutputStream 类、FileInputStream 类和 FileOutputStream 类。</p>
+<h2 id="java-">java字符流</h2>
+<p>尽管 Java 中字节流的功能十分强大，几乎可以直接或间接地处理任何类型的输入/输出操作，但利用它却不能直接操作 16 位的 Unicode 字符。这就要用到字符流。</p>
+<h2 id="java-">java转换流</h2>
+<p>正常情况下，字节流可以对所有的数据进行操作，但是有些时候在处理一些文本时我们要用到字符流，比如，查看文本的中文时就是需要采用字符流更为方便。所以 Java IO 流中提供了两种用于将字节流转换为字符流的转换流。</p>
+<h1 id="-">多线程</h1>
+<h2 id="-">简介</h2>
+<p>是什么?
+Java语言内置了多线程支持：一个Java程序实际上是一个JVM进程，JVM进程用一个主线程来执行main()方法，在main()方法内部，我们又可以启动多个线程。此外，JVM还有负责垃圾回收的其他工作线程等。</p>
+<p>为什么?
+多线程经常需要读写共享数据，并且需要同步。例如，播放电影时，就必须由一个线程播放视频，另一个线程播放音频，两个线程需要协调运行，否则画面和声音就不同步。因此，多线程编程的复杂度高，调试更困难。</p>
+<p>Java多线程编程的特点又在于：
+    多线程模型是Java程序最基本的并发模型；
+    后续读写网络、数据库、Web开发等都依赖Java多线程模型.</p>
+<h2 id="-">创建线程以及线程状态</h2>
+<p>能执行指定的代码的多线程创建方式</p>
+<p><strong>1.继承并重写run方法</strong></p>
+<pre><code>public class Main { 
+    public static void main(String[] args) { 
+    Thread t = new MyThread();    t.start(); // 启动新线程  
+    }
+}
+class MyThread extends Thread { 
+    public void run() {   
+    System.out.println(&quot;start new thread!&quot;);  
+    }
+}
+</code></pre><p>2.创建Thread实例时，传入一个Runnable实例（常用）</p>
+<pre><code>public class Main {  
+public static void main(String[] args) {
+    Thread t = new Thread(new MyRunnable());  
+    t.start(); // 启动新线程 
+    }
+}
+class MyRunnable implements Runnable {  
+     public void run() {    
+     System.out.println(&quot;start new thread!&quot;);
+     }
+}
+</code></pre><p>上面两种实现的方式的区别是:</p>
+<p>1.继承方式只能继承一个类Thread</p>
+<p>2.继承:   线程代码存放在Thread子类run方法中  实现:  线程代码存放在接口的子类的run方法中</p>
+<p>3.jdk8引入的lambda语法简写</p>
+<pre><code>public class Main { 
+public static void main(String[] args) {   
+    Thread t = new Thread(() -&gt; {System.out.println(&quot;start new thread!&quot;);});                t.start();// 启动新线程  
+    }
+}
+</code></pre><h2 id="-">线程信息及操作</h2>
+<p>线程的信息及操作
+Thread.curentTread().getName()      获取当前线程名</p>
+<p>操作
+1.通过对另一个线程对象调用join()方法可以等待其执行结束；</p>
+<ol start="2">
+<li>在线程中调用Thread.sleep()，强迫当前线程暂停一段时间
+3.可以对线程设定优先级，设定优先级的方法是：
+Thread.setPriority(int n) // 1~10, 默认值5
+线程的状态
+new：新创建的线程，尚未执行；</li>
+</ol>
+<p>Runnable：运行中的线程，正在执行run()方法的Java代码；</p>
+<p>Blocked：运行中的线程，因为某些操作被阻塞而挂起；
+Waiting：运行中的线程，因为某些操作在等待中；
+Timed Waiting：运行中的线程，因为执行sleep()方法正在计时等待；</p>
+<p>Terminated：线程已终止，因为run()方法执行完毕。</p>
+<h2 id="-">线程之间的操作</h2>
+<p>1.中断线程
+eg:假设从网络下载一个100M的文件，如果网速很慢，用户等得不耐烦，就可能在下载过程中点“取消”，这时，程序就需要中断下载线程的执行。
+1.中断一个线程非常简单，只需要在其他线程中对目标线程调用interrupt()方法，目标线程需要反复检测自身状态是否是interrupted状态，如果是，就立刻结束运行。</p>
+<p>2.另一个常用的中断线程的方法是设置标志位。我们通常会用一个running标志位来标识线程是否应该继续运行，在外部线程中，通过把HelloThread.running置为false，就可以让线程结束
+2.守护线程
+守护线程是指为其他线程服务的线程。在JVM中，所有非守护线程都执行完毕后，无论有没有守护线程，虚拟机都会自动退出。</p>
+<p>如何创建守护线程呢？方法和普通线程一样，只是在调用start()方法前，调用setDaemon(true)把该线程标记为守护线程。
+3.线程同步
+如果多个线程同时读写共享变量，会出现数据不一致的问题。
+synchronized保证了代码块在任意时刻最多只有一个线程能执行
+如何使用synchronized：</p>
+<pre><code> 1. 找出修改共享变量的线程代码块；
+ 2. 选择一个共享实例作为锁；
+ 3. 使用synchronized(lockObject) { ... }。
+</code></pre><h2 id="-">线程安全问题</h2>
+<p>是什么:cpu执行线程的不确定性导致安全问题（多条语句在操作同一个线程共享数据时,一个线程对多条语句只执行了一部分,还没有执行完,另一个线程参与进来运行,导致共享数据出错）</p>
+<p><strong>是否有安全问题</strong>:</p>
+<p>1.哪些代码是多线程运行代码                        </p>
+<p>2.明确共享数据                        </p>
+<p>3.明确多线程运行代码中哪些语句操作共享数据解决办法:对多条操作共享数据的语句,只能让一个线程都执行完,在执行过程中,其他现场不可执行。</p>
+<p><strong>同步的前提</strong>:</p>
+<p>1必须有两个或两个以上的线程                    </p>
+<p>2必须多个线程使用同一个锁                必须保证同步中只能有一个线程在运行java提供了专业的解决方式:</p>
+<p><strong>线程同步代码块</strong>        火车上的卫生间问题</p>
+<p>synchronized(对象){    需要被同步的代码    (哪些代码在操作数据)} </p>
+<p>   这个对象叫做安全锁好处:解决多线程的安全问题坏处:多个线程需要判断锁,较为消耗资源,在允许范围内</p>
+<h2 id="-">死锁</h2>
+<p>死锁:同步中嵌套同步多写几个同步就死锁了能自己手写一个死锁程序,线程同步这一块就了解的差不多了。</p>
+<h2 id="-">同步函数</h2>
+<p>同步有两种表现形式:  </p>
+<p>  1.同步代码块进行同步   </p>
+<p>  2.synchronized修饰符修饰函数（更方便）同步函数都有一个所属对象引用,就是this。同步函数用的锁是this。静态同步函数静态同步函数使用的锁是class,因为静态方法也不可以
+定义this.</p>
+<h2 id="-">线程间通信</h2>
+<p>多线程通讯:
+其实就是多个线程在操作同一个资源,
+但是操作的动作不同。</p>
+<p>等待唤醒机制:
+在资源加一个标记boolean,
+加入wait()和notify()机制。</p>
+<p>等待的线程放在线程池中,通常唤醒的是第一个wait()的线程,按顺序存放的。
+notifyAll();唤醒所有线程。
+注:必须有对象监视器即同步锁
+锁.wait();       锁.notify();
+因为在操作同步线程,都必须要标识他们所操作的锁
+只有同一个锁的被等待线程,可以被同一个锁上的notify唤醒。
+而锁可以是任意对象,可以被任意对象调用的方法定义在object中。</p>
+<h2 id="-">生产者消费者</h2>
+<p>当出现多个生产者消费者时,必须用while循环和notifyAll();</p>
+<h2 id="synchonized-">Synchonized例子</h2>
+<pre><code class="lang-java">package mode;
+class Res{
+       private String name;
+       private String sex;
+       boolean flag=false;
+       public synchronized void set(String name,String sex) {
+             if(flag)
+                    try{this.wait();}catch(Exception e){}
+             this.name=name;
+             this.sex=sex;
+             this.notify();
+       }
+       public synchronized void out() {
+             if(!flag)
+                    try{this.wait();}catch(Exception e){}
+             System.out.println(name+&quot;........&quot;+sex);
+             flag = false;
+             this.notify();
+       }
+}
+class Input implements Runnable{
+       private Res r;
+       Input(Res r){
+             this.r=r;
+       }
+       @Override
+       public void run() {
+             while(true) {
+                    int x = 0;
+                    while(true)
+                    {
+                          if(x==0)                         
+                                 r.set(&quot;mike&quot;,&quot;man&quot;);                          
+                          else   
+                                 r.set(&quot;丽丽&quot;,&quot;女女女女女&quot;);                    
+                          x = (x+1)%2;
+                    }      
+             }
+       }
+}
+class Output implements Runnable{
+       private Res r;
+       Output(Res r){
+             this.r=r;
+       }
+       @Override
+       public void run() {
+             while(true) {
+                    r.out();
+             }
+       }
+             // TODO Auto-generated method stub
+}
+public class Test {
+       public static void main(String[] args) {
+             // TODO Auto-generated method stub
+             Res r = new Res();
+             new Thread(new Input(r)).start();
+             new Thread(new Output(r)).start();
+       }
+}
+</code></pre>
+<h2 id="lock-">Lock例子</h2>
+<pre><code class="lang-java">
+
+
+package mode;
+import java.util.concurrent.locks.*;
+public class ProducerConsumerDemo2
+{
+       public static void main(String[] args)
+       {
+             Resource r = new Resource();
+             Producer pro = new Producer(r);
+             Consumer con = new Consumer(r);
+             Thread t1 = new Thread(pro);
+             Thread t2 = new Thread(pro);
+             Thread t3 = new Thread(con);
+             Thread t4 = new Thread(con);
+             t1.start();
+             t2.start();
+             t3.start();
+             t4.start();
+       }
+}
+/*
+JDK1.5 中提供了多线程升级解决方案。
+将同步Synchronized替换成现实Lock操作。
+将Object中的wait，notify notifyAll，替换了Condition对象。
+该对象可以Lock锁 进行获取。
+该示例中，实现了本方只唤醒对方操作。
+Lock:替代了Synchronized
+       lock
+       unlock
+       newCondition()
+Condition：替代了Object wait notify notifyAll
+       await();
+       signal();
+       signalAll();
+*/
+class Resource
+{
+       private String name;
+       private int count = 1;
+       private boolean flag = false;
+                    //  t1    t2
+       private Lock lock = new ReentrantLock();
+       private Condition condition_pro = lock.newCondition();
+       private Condition condition_con = lock.newCondition();
+       public  void set(String name)throws InterruptedException
+       {
+             lock.lock();
+             try
+             {
+                    while(flag)
+                          condition_pro.await();//t1,t2
+                    this.name = name+&quot;--&quot;+count++;
+                    System.out.println(Thread.currentThread().getName()+&quot;...生产者..&quot;+this.name);
+                    flag = true;
+                    condition_con.signal();
+             }
+             finally
+             {
+                    lock.unlock();//释放锁的动作一定要执行。
+             }
+       }
+       //  t3   t4  
+       public  void out()throws InterruptedException
+       {
+             lock.lock();
+             try
+             {
+                    while(!flag)
+                          condition_con.await();
+                    System.out.println(Thread.currentThread().getName()+&quot;...消费者.........&quot;+this.name);
+                    flag = false;
+                    condition_pro.signal();
+             }
+             finally
+             {
+                    lock.unlock();
+             }
+
+       }
+}
+class Producer implements Runnable
+{
+       private Resource res;
+       Producer(Resource res)
+       {
+             this.res = res;
+       }
+       public void run()
+       {
+             while(true)
+             {
+                    try
+                    {
+                          res.set(&quot;+商品+&quot;);
+                    }
+                    catch (InterruptedException e)
+                    {
+                    }
+
+             }
+       }
+}
+class Consumer implements Runnable
+{
+       private Resource res;
+       Consumer(Resource res)
+       {
+             this.res = res;
+       }
+       public void run()
+       {
+             while(true)
+             {
+                    try
+                    {
+                          res.out();
+                    }
+                    catch (InterruptedException e)
+                    {
+                    }
+             }
+       }
+}
+
+
+
+</code></pre>
+<h1 id="-">泛型</h1>
+<h2 id="-">泛型</h2>
+<p>泛型就是编写模板代码来适应任意类型；泛型的好处是使用时不必对类型进行强制转换，它通过编译器对类型进行检查；</p>
+<h2 id="-">泛型的使用</h2>
+<p>T可以是任何class。这样一来，我们就实现了：编写一次模版，可以创建任意类型的ArrayList：
+public class ArrayList<T> {
+private T[] array;
+private int size;
+public void add(T e) {...}
+public void remove(int index) {...}
+public T get(int index) {...}
+}
+编译器看到泛型类型List<Number>就可以自动推断出后面的ArrayList<T>的泛型类型必须是ArrayList<Number>，因此，可以把代码简写为：
+// 可以省略后面的Number，编译器可以自动推断泛型类型：
+List<Number> list = new ArrayList&lt;&gt;();
+E是指方法接收的参数为任意类型</p>
+<h1 id="-">正则表达式</h1>
+<p>Paren
+基本匹配1。\转义（转义特殊字符&amp;，\等）   .可以匹配一个任意字符    \d匹配数字  \D匹配非数字
+\w可以匹配一个字母、数字或下划线    \s可以匹配一个空格字符（包括\t）
+中文匹配2。a\u548cc匹配字符串&quot;a和c&quot;   中文字符和的Unicode编码是548c
+重复匹配3.修饰符*可以匹配任意个字符    修饰符+可以匹配至少一个字符</p>
+<h1 id="jdk8-">jdk8新特性</h1>
+<p>jdk升级的原因: </p>
+<p>​    1提高效率             </p>
+<p>​    2简化书写             </p>
+<p>​    3提高安全性</p>
+<p>1.lambda表达式  （简化书写）</p>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
