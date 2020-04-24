@@ -48,7 +48,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('21', '王鹏', '123', '3214397800@qq.com');
+
 
 -- ----------------------------
 -- Table structure for vedio
@@ -65,4 +65,4 @@ CREATE TABLE `vedio` (
 -- ----------------------------
 -- Records of vedio
 -- ----------------------------
-INSERT INTO `vedio` VALUES ('35', '王鹏', 'C:/FileDir/王鹏.mp4', 'java');
+
